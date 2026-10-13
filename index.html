@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>數學探險隊 | Phaser 闖關遊戲</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; background: #0d1b36; color: #e8f0ff;
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif; }
+    body { display: flex; flex-direction: column; align-items: center; padding: 12px 12px 24px; }
+    h1 { margin: 4px 0 2px; font-size: 26px; }
+    .hint { margin: 0 0 10px; font-size: 13px; opacity: .8; }
+    #game { width: 100%; max-width: 800px; }
+    #game canvas { display: block; border-radius: 12px; }
+    .controls { display: flex; gap: 8px; margin-top: 12px; align-items: center; }
+    .controls button { min-width: 52px; height: 44px; border: 0; border-radius: 10px; background: #34589a;
+      color: #fff; font-size: 20px; cursor: pointer; touch-action: none; user-select: none; }
+    .controls button:active { background: #4a74c4; }
+    .controls .restart { font-size: 15px; padding: 0 14px; }
+    .note { margin-top: 10px; font-size: 12px; opacity: .65; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>數學探險隊</h1>
+  <p class="hint">移動小隊長尋找答案！答對 +10 分，收集 1 枚金幣；答錯 −5 分。</p>
+  <div id="game"></div>
+  <div class="controls">
+    <button data-dir="left" aria-label="向左">←</button>
+    <button data-dir="up" aria-label="向上">↑</button>
+    <button data-dir="down" aria-label="向下">↓</button>
+    <button data-dir="right" aria-label="向右">→</button>
+    <button class="restart" id="restart">重新開始</button>
+  </div>
+  <div class="note">電腦：方向鍵或 WASD ｜ 手機：下方方向按鈕 ｜ 每關 3 題，共 5 關</div>
+
+  <script>
+    // 圖片路徑集中在這裡，方便 build-single.py 換成 base64 後輸出單一 html 檔
+    window.ASSETS = { hero: 'assets/explorer.png' };
+  </script>
+  <script src="vendor/phaser.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
